@@ -1,0 +1,28 @@
+.grid-container{margin-top: 30px; }
+.grid{display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-gap: 1.1rem;}
+.grid-item{position: relative; width: 100%; color: #fafafa; font-size: 1rem; border-radius: 30px;}
+.grid-item img{width: 100%; object-fit: cover; border-radius: 5px;}
+/* using scale and increasing height visuallys appears slightly skewed whilst in process of sliding up, to
+remove that skewed type of visual use height property as well, height:auto; doesn't work for transitions, have to use 
+a defined unit */
+.overlay{position: absolute; bottom: 0; left: 0; width: 100%; height: 0; opacity: 0; transform: scaleY(0); 
+    transform-origin: bottom; padding: 20px; overflow: hidden; background-color: black; border-top-right-radius: 25px; 
+    border-top-left-radius: 25px; transition: all 0.3s ease-in;}
+.title-rating{width: 100%; justify-content: space-between!important;}
+.title-rating h2{font-size: 1.1rem; width: 80%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    padding-bottom: 0.1rem;}
+.title-rating p{color: #fada4d;}
+.grid-item:hover .overlay{ height: 47%; opacity: 1; transform: scaleY(1); }
+.overview p{display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; 
+    -webkit-line-clamp: 4; margin-top: 5px; line-height: 1.3rem; font-size: 0.9rem;}
+.overview h3{margin-top: 10px; font-weight: bold;}
+
+.card-btn{position: absolute; inset: 0;}
+.bookmark{padding: 3px; border-radius: 50%; background-color: #fada4d; position: absolute; z-index: 2;
+     top: 10; right: 10; cursor: pointer; font-size: 18px; color: #000000;}
+.bookmark.active{cursor: pointer;}
+
+@media screen and (max-width: 1325px) and (orientation: landscape){
+    .grid{grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); } 
+    .overview p { -webkit-line-clamp: 3; }
+}
