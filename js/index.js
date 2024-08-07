@@ -12,11 +12,8 @@ function cardButtonId(cardId){
 const searchInput = document.querySelector("#search");
 searchInput.addEventListener("keyup", async function(event){
     const searchValue = event.target.value;
-    if(searchValue != ""){
-        await getMovies(searchApi+searchValue+"&api_key=b5267f139048a97aef935f88cd81dcc5");
-    }else{
-        await getMovies(apiurl);
-    }
+    (searchValue != "") ? await getMovies(searchApi+searchValue+"&api_key=b5267f139048a97aef935f88cd81dcc5") : 
+                          await getMovies(apiurl) 
 });
 
 const getMovies = async (apis) => {
