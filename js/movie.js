@@ -1,8 +1,8 @@
 const itemId = localStorage.getItem('itemId');
 // You can use itemId here or perform any other logic based on its value
-const apiurl = "https://api.themoviedb.org/3/movie/"+itemId+"/credits?language=en-US&api_key=b5267f139048a97aef935f88cd81dcc5";
-const detailUrl = "https://api.themoviedb.org/3/movie/"+itemId+"?language=en-US&api_key=b5267f139048a97aef935f88cd81dcc5";
-const similarUrl = "https://api.themoviedb.org/3/movie/"+itemId+"/similar?language=en-US&page=1&api_key=b5267f139048a97aef935f88cd81dcc5";
+const apiurl = "https://api.themoviedb.org/3/movie/"+itemId+"/credits?language=en-US&api_key="+apiKey;
+const detailUrl = "https://api.themoviedb.org/3/movie/"+itemId+"?language=en-US&api_key="+apiKey;
+const similarUrl = "https://api.themoviedb.org/3/movie/"+itemId+"/similar?language=en-US&page=1&api_key="+apiKey;
 const posterPath = "https://image.tmdb.org/t/p/w1280";
 const allContent = document.querySelector(".all-content");
 const sliderContainer = document.querySelector(".slider-container");
@@ -166,9 +166,9 @@ const displaySimilarMovies = (similarMovieItems) => {
             localStorage.setItem('itemId', clickedMovieId);
             
             // Fetch details of the clicked movie
-            const clickedMovieDetailUrl = `https://api.themoviedb.org/3/movie/${clickedMovieId}?language=en-US&api_key=b5267f139048a97aef935f88cd81dcc5`;
-            const clickedMovieSimilarUrl = `https://api.themoviedb.org/3/movie/${clickedMovieId}/similar?language=en-US&page=1&api_key=b5267f139048a97aef935f88cd81dcc5`;
-            const castandcrewUrl = "https://api.themoviedb.org/3/movie/"+clickedMovieId+"/credits?language=en-US&api_key=b5267f139048a97aef935f88cd81dcc5";
+            const clickedMovieDetailUrl = `https://api.themoviedb.org/3/movie/${clickedMovieId}?language=en-US&api_key=${apiKey}`;
+            const clickedMovieSimilarUrl = `https://api.themoviedb.org/3/movie/${clickedMovieId}/similar?language=en-US&page=1&api_key=${apiKey}`;
+            const castandcrewUrl = "https://api.themoviedb.org/3/movie/"+clickedMovieId+"/credits?language=en-US&api_key="+apiKey;
 
             try {
                 const clickedMovieDetailResponse = await fetch(clickedMovieDetailUrl);
@@ -195,9 +195,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     const storedItemId = localStorage.getItem('itemId');
     if (storedItemId) {
         // Fetch details and similar movies for the stored movie ID
-        const detailUrl = `https://api.themoviedb.org/3/movie/${storedItemId}?language=en-US&api_key=b5267f139048a97aef935f88cd81dcc5`;
-        const similarUrl = `https://api.themoviedb.org/3/movie/${storedItemId}/similar?language=en-US&page=1&api_key=b5267f139048a97aef935f88cd81dcc5`;
-        const castandcrewUrl = `https://api.themoviedb.org/3/movie/${storedItemId}/credits?language=en-US&api_key=b5267f139048a97aef935f88cd81dcc5`;
+        const detailUrl = `https://api.themoviedb.org/3/movie/${storedItemId}?language=en-US&api_key=${apiKey}`;
+        const similarUrl = `https://api.themoviedb.org/3/movie/${storedItemId}/similar?language=en-US&page=1&api_key=${apiKey}`;
+        const castandcrewUrl = `https://api.themoviedb.org/3/movie/${storedItemId}/credits?language=en-US&api_key=${apiKey}`;
 
         try {
             const detailResponse = await fetch(detailUrl);
