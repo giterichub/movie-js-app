@@ -1,4 +1,4 @@
-const apiurl = "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&year=2024&api_key=b5267f139048a97aef935f88cd81dcc5";
+const apiurl = "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&year=2024&api_key="+apiKey;
 const posterPath = "https://image.tmdb.org/t/p/w1280";
 const searchApi = "https://api.themoviedb.org/3/search/movie?query=";
 const grid = document.querySelector(".grid");
@@ -12,7 +12,7 @@ function cardButtonId(cardId){
 const searchInput = document.querySelector("#search");
 searchInput.addEventListener("keyup", async function(event){
     const searchValue = event.target.value;
-    (searchValue != "") ? await getMovies(searchApi+searchValue+"&api_key=b5267f139048a97aef935f88cd81dcc5") : 
+    (searchValue != "") ? await getMovies(searchApi+searchValue+"&api_key="+apiKey) : 
                           await getMovies(apiurl) 
 });
 
